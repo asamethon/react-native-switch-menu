@@ -1,0 +1,44 @@
+{
+  "name": "react-native-switch-menu",
+  "version": "1.0.0",
+  "description": "A customizable switch menu component for React Native",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build",
+    "test": "jest",
+    "lint": "eslint . --ext .ts,.tsx"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asamethon/react-native-switch-menu.git"
+  },
+  "keywords": [
+    "react-native",
+    "switch",
+    "menu",
+    "component"
+  ],
+  "author": "asamethon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/asamethon/react-native-switch-menu/issues"
+  },
+  "homepage": "https://github.com/asamethon/react-native-switch-menu#readme",
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "@types/react-native": "^0.72.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.0.0",
+    "typescript": "^5.0.0",
+    "jest": "^29.0.0",
+    "@types/jest": "^29.0.0"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-native": ">=0.60.0",
+    "react-native-reanimated": ">=2.0.0"
+  }
+}
