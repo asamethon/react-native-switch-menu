@@ -1,6 +1,8 @@
-# react-native-switch-menu
+# React Native Switch Menu
 
 A customizable animated switch menu component for React Native.
+
+https://github.com/user-attachments/assets/3e83e6f7-7fcc-4f90-830b-e61e33053de5
 
 ## Installation
 
@@ -15,6 +17,8 @@ yarn add react-native-switch-menu
 ```
 
 ## Usage
+
+
 
 ```js
 import { Text, View } from "react-native";
