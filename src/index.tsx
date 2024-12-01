@@ -6,15 +6,15 @@ import Animated, {
   withTiming,
 } from "react-native-reanimated";
 
-export type SwitchMenuOption = {
-  id: string;
+export type SwitchMenuOption<T extends string = string> = {
+  id: T;
   label: string;
 };
 
-interface SwitchMenuProps {
-  options: SwitchMenuOption[];
-  defaultOption?: string;
-  onChange?: (option: string) => void;
+interface SwitchMenuProps<T extends string = string> {
+  options: SwitchMenuOption<T>[];
+  defaultOption?: T;
+  onChange?: (option: T) => void;
   activeTextColor?: string;
   inactiveTextColor?: string;
   backgroundColor?: string;
@@ -22,7 +22,7 @@ interface SwitchMenuProps {
   animationDuration?: number;
 }
 
-export const SwitchMenu: React.FC<SwitchMenuProps> = ({
+export const SwitchMenu = <T extends string = string>({
   options,
   defaultOption,
   onChange,
@@ -31,14 +31,14 @@ export const SwitchMenu: React.FC<SwitchMenuProps> = ({
   backgroundColor = "#F6F6F6",
   selectorColor = "#FFFFFF",
   animationDuration = 300,
-}) => {
-  const [selectedOption, setSelectedOption] = useState<string>(defaultOption || options[0].id);
+}: SwitchMenuProps<T>) => {
+  const [selectedOption, setSelectedOption] = useState<T>(defaultOption || options[0].id);
   const refs = useRef<{ [key: string]: View | null }>({});
 
   const translateX = useSharedValue(0);
   const selectorWidth = useSharedValue(0);
 
-  const handlePress = (optionId: string, index: number, buttonWidth: number) => {
+  const handlePress = (optionId: T, index: number, buttonWidth: number) => {
     setSelectedOption(optionId);
     onChange?.(optionId);
     selectorWidth.value = withTiming(buttonWidth, { duration: animationDuration });
@@ -52,7 +52,7 @@ export const SwitchMenu: React.FC<SwitchMenuProps> = ({
 
   const handleLayout = (
     event: any,
-    optionId: string,
+    optionId: T,
     index: number,
   ) => {
     const { width } = event.nativeEvent.layout;
