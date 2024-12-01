@@ -16,12 +16,24 @@
   },
   "keywords": [
     "react-native",
+    "react",
     "switch",
     "menu",
-    "component"
+    "component",
+    "toggle",
+    "mobile",
+    "ios",
+    "android",
+    "ui",
+    "interface",
+    "navigation",
+    "drawer",
+    "sidebar",
+    "native",
+    "rn"
   ],
   "author": "asamethon",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/asamethon/react-native-switch-menu/issues"
   },

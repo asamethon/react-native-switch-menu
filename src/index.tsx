@@ -28,8 +28,8 @@ export const SwitchMenu: React.FC<SwitchMenuProps> = ({
   onChange,
   activeTextColor = "#000000",
   inactiveTextColor = "rgba(0,0,0,0.5)",
-  backgroundColor = "#cccccc",
-  selectorColor = "#ffffff",
+  backgroundColor = "#F6F6F6",
+  selectorColor = "#FFFFFF",
   animationDuration = 300,
 }) => {
   const [selectedOption, setSelectedOption] = useState<string>(defaultOption || options[0].id);
