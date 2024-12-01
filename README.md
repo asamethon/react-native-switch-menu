@@ -21,27 +21,32 @@ yarn add react-native-switch-menu
 
 
 ```js
-import { Text, View } from "react-native";
-import { SwitchMenu } from "react-native-switch-menu";
+import { SafeAreaView, Text, View } from "react-native";
+import { SwitchMenu, SwitchMenuOption } from "react-native-switch-menu";
 import { useState } from "react";
 
-export default function App() {
-  const [selectedOption, setSelectedOption] = useState("tab-1");
-  const options = [
+type TabOptions = "tab-1" | "tab-2";
+
+export default function HomeScreen() {
+  const [selectedOption, setSelectedOption] = useState<TabOptions>("tab-1");
+
+  const options: SwitchMenuOption<TabOptions>[] = [
     { id: "tab-1", label: "Tab 1" },
     { id: "tab-2", label: "Tab 2" },
   ];
 
   return (
-    <View>
-      <SwitchMenu
-        onChange={(option) => setSelectedOption(option)}
-        options={options}
-        defaultOption="tab-1"
-        backgroundColor="#F6F6F6" // default
-        selectorColor="#FFFFFF" // default
-      />
-    </View>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.card}>
+        <SwitchMenu
+          options={options}
+          defaultOption="tab-1"
+          backgroundColor="#F6F6F6"
+          onChange={setSelectedOption}
+        />
+        <Text>{selectedOption === "tab-1" ? "Tab 1" : "Tab 2"}</Text>
+      </View>
+    </SafeAreaView>
   );
 }
 ```

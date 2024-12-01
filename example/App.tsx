@@ -1,16 +1,13 @@
 import { SafeAreaView, Text, View } from "react-native";
-import { SwitchMenu } from "react-native-switch-menu";
+import { SwitchMenu, SwitchMenuOption } from "react-native-switch-menu";
 import { useState } from "react";
 
-type Option = {
-  id: "paid" | "clients";
-  label: string;
-};
+type TabOptions = "paid" | "clients";
 
 export default function HomeScreen() {
-  const [selectedOption, setSelectedOption] = useState<Option["id"]>("paid");
+  const [selectedOption, setSelectedOption] = useState<TabOptions>("paid");
 
-  const options: Option[] = [
+  const options: SwitchMenuOption<TabOptions>[] = [
     { id: "paid", label: "Paid" },
     { id: "clients", label: "Clients" },
   ];
@@ -20,8 +17,9 @@ export default function HomeScreen() {
       <View style={styles.card}>
         <SwitchMenu
           options={options}
+          defaultOption="paid"
           backgroundColor="#F6F6F6"
-          onChange={(option: string) => setSelectedOption(option as Option["id"])}
+          onChange={setSelectedOption}
         />
         <Text style={styles.text}>
           <Text style={styles.boldText}>
